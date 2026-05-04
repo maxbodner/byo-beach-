@@ -40,7 +40,7 @@ export default function LandingScreen({ onPlay, pinCount }) {
           className="text-xs font-medium tracking-[0.2em] text-white mb-3"
           style={{ textShadow: '0 1px 2px rgba(0,0,0,0.2)' }}
         >
-          BRIAN KELLEY · NEW SINGLE
+          BRIAN KELLEY &amp; NIKO MOON
         </p>
 
         <h1
@@ -50,7 +50,7 @@ export default function LandingScreen({ onPlay, pinCount }) {
             letterSpacing: '-0.02em'
           }}
         >
-          BYO Beach
+          B-Y-O-Beach
         </h1>
 
         <p
