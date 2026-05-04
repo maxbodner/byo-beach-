@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Leaflet customizations */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #E6F1FB;
+  font-family: 'Inter', sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(4, 44, 83, 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 4px 12px rgba(4, 44, 83, 0.15);
+}
+
+/* Custom pin marker */
+.pin-marker {
+  background: transparent;
+  border: none;
+}
+
+.pin-marker-inner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #D85A30;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide leaflet attribution prefix on mobile */
+@media (max-width: 640px) {
+  .leaflet-control-attribution {
+    font-size: 9px;
+  }
+}
+
+/* Equalizer bars */
+.eq-bar {
+  width: 3px;
+  background: #FAC775;
+  border-radius: 1px;
+  transform-origin: bottom;
+}
+
+/* Hide scrollbar in modal */
+.modal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #D3D1C7;
+  border-radius: 3px;
+}
