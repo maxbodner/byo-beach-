@@ -5,7 +5,9 @@ export default function LandingScreen({ onPlay, pinCount }) {
     <div
       className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #B5D4F4 0%, #85B7EB 40%, #FAC775 75%, #F5C4B3 100%)'
+        backgroundImage: 'url(/IMG_4828.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
       }}
     >
       {/* Sun */}
@@ -35,7 +37,7 @@ export default function LandingScreen({ onPlay, pinCount }) {
       </svg>
 
       {/* Content stack */}
-      <div className="relative z-10 max-w-md flex flex-col items-center">
+      <div className="relative z-10 max-w-md flex flex-col items-center rounded-2xl px-8 py-8" style={{ background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(6px)' }}>
         <p
           className="text-xs font-medium tracking-[0.2em] text-white mb-3"
           style={{ textShadow: '0 1px 2px rgba(0,0,0,0.2)' }}
