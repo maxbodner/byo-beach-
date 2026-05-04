@@ -37,7 +37,7 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
 
     if (!state) errs.state = 'Required'
 
-    if (note.length > 100) errs.note = 'Max 100 characters'
+    if (note.length > 200) errs.note = 'Max 200 characters'
 
     setErrors(errs)
     return Object.keys(errs).length === 0
@@ -97,7 +97,7 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
           <div className="grid grid-cols-3 gap-2">
             <div className="col-span-2">
               <label className="block text-xs text-gray-600 mb-1">
-                Beach name
+                Happy place
               </label>
               <input
                 type="text"
@@ -137,12 +137,12 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
           {/* Note */}
           <div>
             <label className="block text-xs text-gray-600 mb-1">
-              Why this spot? <span className="text-gray-400">(optional, {100 - note.length} left)</span>
+              Why this spot? <span className="text-gray-400">(optional, {200 - note.length} left)</span>
             </label>
             <textarea
               value={note}
-              onChange={(e) => setNote(e.target.value.slice(0, 100))}
-              maxLength={100}
+              onChange={(e) => setNote(e.target.value.slice(0, 200))}
+              maxLength={200}
               placeholder="My grandparents took me here every summer..."
               disabled={submitting}
               rows={2}
