@@ -118,8 +118,8 @@ async function buildCanvas(firstName, beachName, country, note) {
   }
 
   // Footer CTA
-  ctx.font = '400 30px "Inter", sans-serif'
-  ctx.fillStyle = 'rgba(255,255,255,0.6)'
+  ctx.font = '500 46px "Inter", sans-serif'
+  ctx.fillStyle = 'rgba(255,255,255,0.75)'
   ctx.fillText('add your spot at officialbriankelley.com/byobeach', 540, 1840)
 
   return canvas.toDataURL('image/jpeg', 0.92)
@@ -205,14 +205,7 @@ export default function ShareCard({ firstName, beachName, country, note, onClose
             className="w-full py-3 rounded-full text-white text-sm font-medium disabled:opacity-40 transition-opacity"
             style={{ background: 'linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%)' }}
           >
-            Share to Instagram Story
-          </button>
-          <button
-            onClick={triggerDownload}
-            disabled={!imageUrl}
-            className="w-full py-3 rounded-full bg-navy text-white text-sm font-medium disabled:opacity-40 hover:opacity-90 transition-opacity"
-          >
-            Save to Camera Roll
+            Share
           </button>
           <button
             onClick={onClose}
