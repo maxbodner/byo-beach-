@@ -10,8 +10,8 @@ create table if not exists pins (
   lng          double precision not null,
   first_name   text not null check (char_length(first_name) between 1 and 30),
   beach_name   text not null check (char_length(beach_name) between 1 and 60),
-  state        text not null check (char_length(state) = 2),
-  note         text check (char_length(note) <= 100),
+  state        text not null check (char_length(state) between 1 and 60),
+  note         text check (char_length(note) <= 200),
   status       text not null default 'approved' check (status in ('pending','approved','rejected')),
   created_at   timestamptz not null default now()
 );

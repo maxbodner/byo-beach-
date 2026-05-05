@@ -3,7 +3,13 @@
     "allow": [
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(brew install *)",
+      "Bash(git --version)",
+      "Read(//Users/maxbodner/**)",
+      "Bash(ssh-keygen *)",
+      "Bash(git remote *)",
+      "Bash(ssh -T git@github.com)"
     ]
   }
 }
