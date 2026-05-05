@@ -120,7 +120,7 @@ async function buildCanvas(firstName, beachName, country, note) {
   // Footer CTA
   ctx.font = '500 46px "Inter", sans-serif'
   ctx.fillStyle = 'rgba(255,255,255,0.75)'
-  ctx.fillText('add your spot at officialbriankelley.com/byobeach', 540, 1840)
+  ctx.fillText('add your spot at officialbriankelley.com/byobeach', 540, 1390)
 
   return canvas.toDataURL('image/jpeg', 0.92)
 }
