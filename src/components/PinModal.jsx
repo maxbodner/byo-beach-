@@ -102,7 +102,7 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
               <input
                 type="text"
                 value={beachName}
-                onChange={(e) => setBeachName(e.target.value.slice(0, 60))}
+                onChange={(e) => setBeachName(e.target.value.slice(0, 60).replace(/(?:^|\s)\S/g, c => c.toUpperCase()))}
                 maxLength={60}
                 placeholder="Siesta Key"
                 disabled={submitting}
@@ -115,7 +115,7 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
 
             <div>
               <label className="block text-xs text-gray-600 mb-1">
-                Country
+                State/Country
               </label>
               <input
                 type="text"

@@ -35,8 +35,8 @@ function MapClickHandler({ onMapClick }) {
 export default function PinMap({ pins, pendingLocation, onMapClick }) {
   return (
     <MapContainer
-      center={[20, 0]}
-      zoom={2}
+      center={[39.5, -98.5]}
+      zoom={4}
       minZoom={2}
       maxZoom={12}
       zoomControl={true}
