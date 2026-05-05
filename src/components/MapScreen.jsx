@@ -3,6 +3,7 @@ import PlayerBar from './PlayerBar'
 import PinMap from './PinMap'
 import PinModal from './PinModal'
 import SuccessToast from './SuccessToast'
+import ShareCard from './ShareCard'
 import { fetchApprovedPins, submitPin } from '../lib/supabase'
 import { track } from '../lib/analytics'
 
@@ -19,6 +20,8 @@ export default function MapScreen({
   const [pins, setPins] = useState([])
   const [pendingLocation, setPendingLocation] = useState(null) // {lat, lng}
   const [showSuccess, setShowSuccess] = useState(false)
+  const [showShareCard, setShowShareCard] = useState(false)
+  const [submittedPin, setSubmittedPin] = useState(null)
   const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
@@ -57,6 +60,7 @@ export default function MapScreen({
       }
       onPinAdded()
       setPendingLocation(null)
+      setSubmittedPin(formData)
       setShowSuccess(true)
     } catch (err) {
       track('pin_submit_error', { message: err.message })
@@ -112,7 +116,24 @@ export default function MapScreen({
         />
       )}
 
-      {showSuccess && <SuccessToast onDismiss={() => setShowSuccess(false)} />}
+      {showSuccess && (
+        <SuccessToast
+          onDismiss={() => {
+            setShowSuccess(false)
+            setShowShareCard(true)
+          }}
+        />
+      )}
+
+      {showShareCard && submittedPin && (
+        <ShareCard
+          firstName={submittedPin.firstName}
+          beachName={submittedPin.beachName}
+          country={submittedPin.country}
+          note={submittedPin.note}
+          onClose={() => setShowShareCard(false)}
+        />
+      )}
     </div>
   )
 }

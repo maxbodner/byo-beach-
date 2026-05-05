@@ -9,7 +9,8 @@
       "Read(//Users/maxbodner/**)",
       "Bash(ssh-keygen *)",
       "Bash(git remote *)",
-      "Bash(ssh -T git@github.com)"
+      "Bash(ssh -T git@github.com)",
+      "Bash(identify /Users/maxbodner/Desktop/byo-beach/public/IMG_4828.jpg)"
     ]
   }
 }
