@@ -47,7 +47,7 @@ export async function submitPin(pin) {
       lng: pin.lng,
       first_name: pin.firstName.trim(),
       beach_name: pin.beachName.trim(),
-      state: pin.state.toUpperCase(),
+      state: pin.country.trim(),
       note: pin.note?.trim() || null,
     }])
     .select()

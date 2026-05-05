@@ -58,7 +58,6 @@ export default function MapScreen({
       onPinAdded()
       setPendingLocation(null)
       setShowSuccess(true)
-      setTimeout(() => setShowSuccess(false), 3500)
     } catch (err) {
       track('pin_submit_error', { message: err.message })
       alert('Something went wrong. Please try again.')
@@ -113,7 +112,7 @@ export default function MapScreen({
         />
       )}
 
-      {showSuccess && <SuccessToast />}
+      {showSuccess && <SuccessToast onDismiss={() => setShowSuccess(false)} />}
     </div>
   )
 }

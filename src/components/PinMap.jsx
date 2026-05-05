@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet'
+import { useEffect } from 'react'
 import L from 'leaflet'
 
 // Custom pin icon
@@ -16,6 +17,14 @@ const pendingPinIcon = L.divIcon({
   iconAnchor: [12, 12],
 })
 
+function RemoveBounds() {
+  const map = useMap()
+  useEffect(() => {
+    map.setMaxBounds(null)
+  }, [map])
+  return null
+}
+
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => onMapClick(e.latlng),
@@ -26,15 +35,10 @@ function MapClickHandler({ onMapClick }) {
 export default function PinMap({ pins, pendingLocation, onMapClick }) {
   return (
     <MapContainer
-      center={[39.5, -98.5]} // Center of continental US
-      zoom={4}
-      minZoom={3}
+      center={[20, 0]}
+      zoom={2}
+      minZoom={2}
       maxZoom={12}
-      maxBounds={[
-        [15, -180], // SW (includes Hawaii area)
-        [72, -50],  // NE (includes Alaska area)
-      ]}
-      maxBoundsViscosity={1.0}
       zoomControl={true}
       className="h-full w-full"
     >
@@ -43,6 +47,7 @@ export default function PinMap({ pins, pendingLocation, onMapClick }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
+      <RemoveBounds />
       <MapClickHandler onMapClick={onMapClick} />
 
       {pins.map(pin => (

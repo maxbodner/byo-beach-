@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
-import { US_STATES } from '../lib/states'
 
 export default function PinModal({ location, onSubmit, onCancel, submitting }) {
   const [firstName, setFirstName] = useState('')
   const [beachName, setBeachName] = useState('')
-  const [state, setState] = useState('')
+  const [country, setCountry] = useState('')
   const [note, setNote] = useState('')
   const [errors, setErrors] = useState({})
   const firstNameRef = useRef(null)
@@ -35,7 +34,8 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
     if (!beachName.trim()) errs.beachName = 'Required'
     else if (beachName.length > 60) errs.beachName = 'Max 60 characters'
 
-    if (!state) errs.state = 'Required'
+    if (!country.trim()) errs.country = 'Required'
+    else if (country.length > 60) errs.country = 'Max 60 characters'
 
     if (note.length > 200) errs.note = 'Max 200 characters'
 
@@ -46,7 +46,7 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!validate()) return
-    onSubmit({ firstName, beachName, state, note })
+    onSubmit({ firstName, beachName, country, note })
   }
 
   return (
@@ -93,7 +93,7 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
             {errors.firstName && <p className="text-xs text-red-500 mt-1">{errors.firstName}</p>}
           </div>
 
-          {/* Beach + state row */}
+          {/* Beach + country row */}
           <div className="grid grid-cols-3 gap-2">
             <div className="col-span-2">
               <label className="block text-xs text-gray-600 mb-1">
@@ -115,22 +115,20 @@ export default function PinModal({ location, onSubmit, onCancel, submitting }) {
 
             <div>
               <label className="block text-xs text-gray-600 mb-1">
-                State
+                Country
               </label>
-              <select
-                value={state}
-                onChange={(e) => setState(e.target.value)}
+              <input
+                type="text"
+                value={country}
+                onChange={(e) => setCountry(e.target.value.slice(0, 60))}
+                maxLength={60}
+                placeholder="USA"
                 disabled={submitting}
-                className={`w-full px-2 py-2 border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-navy/30 ${
-                  errors.state ? 'border-red-400' : 'border-gray-300'
+                className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-navy/30 ${
+                  errors.country ? 'border-red-400' : 'border-gray-300'
                 }`}
-              >
-                <option value="">—</option>
-                {US_STATES.map(s => (
-                  <option key={s.code} value={s.code}>{s.code}</option>
-                ))}
-              </select>
-              {errors.state && <p className="text-xs text-red-500 mt-1">{errors.state}</p>}
+              />
+              {errors.country && <p className="text-xs text-red-500 mt-1">{errors.country}</p>}
             </div>
           </div>
 
