@@ -46,14 +46,14 @@ export default function PinMap({ pins, pendingLocation, onMapClick }) {
       center={[39.5, -98.5]}
       zoom={4}
       minZoom={2}
-      maxZoom={12}
+      maxZoom={18}
       zoomControl={true}
       worldCopyJump={true}
       className="h-full w-full"
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
 
       <RemoveBounds />
