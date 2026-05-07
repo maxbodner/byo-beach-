@@ -48,6 +48,7 @@ export default function PinMap({ pins, pendingLocation, onMapClick }) {
       minZoom={2}
       maxZoom={12}
       zoomControl={true}
+      worldCopyJump={true}
       className="h-full w-full"
     >
       <TileLayer
