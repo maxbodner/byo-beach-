@@ -32,6 +32,14 @@ function MapClickHandler({ onMapClick }) {
   return null
 }
 
+function ClosePopupOnMove() {
+  const map = useMap()
+  useMapEvents({
+    movestart: () => map.closePopup(),
+  })
+  return null
+}
+
 export default function PinMap({ pins, pendingLocation, onMapClick }) {
   return (
     <MapContainer
@@ -49,6 +57,7 @@ export default function PinMap({ pins, pendingLocation, onMapClick }) {
 
       <RemoveBounds />
       <MapClickHandler onMapClick={onMapClick} />
+      <ClosePopupOnMove />
 
       {pins.map(pin => (
         <Marker key={pin.id} position={[pin.lat, pin.lng]} icon={pinIcon}>
