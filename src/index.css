@@ -40,7 +40,8 @@ html, body, #root {
 }
 
 /* Custom pin marker */
-.pin-marker {
+.pin-marker,
+.star-marker {
   background: transparent;
   border: none;
 }

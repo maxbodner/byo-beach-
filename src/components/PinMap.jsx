@@ -10,6 +10,13 @@ const pinIcon = L.divIcon({
   iconAnchor: [9, 9],
 })
 
+const starIcon = L.divIcon({
+  className: 'star-marker',
+  html: '<div style="font-size:22px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4));">⭐</div>',
+  iconSize: [22, 22],
+  iconAnchor: [11, 11],
+})
+
 const pendingPinIcon = L.divIcon({
   className: 'pin-marker',
   html: '<div class="pin-marker-inner" style="width:24px;height:24px;background:#FAC775;border-color:#854F0B;animation:pulse 1.2s ease-in-out infinite"></div><style>@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:0.85}}</style>',
@@ -61,7 +68,7 @@ export default function PinMap({ pins, pendingLocation, onMapClick }) {
       <ClosePopupOnMove />
 
       {pins.map(pin => (
-        <Marker key={pin.id} position={[pin.lat, pin.lng]} icon={pinIcon}>
+        <Marker key={pin.id} position={[pin.lat, pin.lng]} icon={pin.id === 'ec9f8658-01bd-4403-a24f-a6d337e630c9' ? starIcon : pinIcon}>
           <Popup>
             <div className="font-sans">
               <p className="font-medium text-sm text-navy m-0">
